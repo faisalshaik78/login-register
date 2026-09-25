@@ -1,0 +1,32 @@
+[
+  {
+    "id": "mugv88wsromia5",
+    "username": "faisal",
+    "passwordHash": "$2b$10$0h32.2vXXlU5I29zAk6rzOXNKAFmB9kBy0jCVy5zPFrR2eESnW8Ui",
+    "createdAt": "2026-09-25T11:16:31.900Z"
+  },
+  {
+    "id": "mugw4wjf3u0rym",
+    "username": "newuser",
+    "passwordHash": "$2b$10$EZBq1RgRO.YaaA0ICV8KEOP02N0MDgPf9VVDev/aH2HJRqiS5YMky",
+    "createdAt": "2026-09-25T11:41:55.515Z"
+  },
+  {
+    "id": "mugwahf1eh2ac5",
+    "username": "tester_1790336775710",
+    "passwordHash": "$2b$10$1hO4kQgZ1chMarNgkCOzkuS.SIOl.lQVlvBtXCuQxmtrbDHh8Fogq",
+    "createdAt": "2026-09-25T11:46:15.853Z"
+  },
+  {
+    "id": "mugwg3z0uifvb0",
+    "username": "tester_1790337038154",
+    "passwordHash": "$2b$10$IpNQLq7Hq5iCMbsIrKOW9OmJ3WTFiKTitOxiZZ9p4Dtqq9Qmw.XJO",
+    "createdAt": "2026-09-25T11:50:38.364Z"
+  },
+  {
+    "id": "mugwrdzrj8iucr",
+    "username": "faisalshaik78666@gmail.com",
+    "passwordHash": "$2b$10$EjtBcYWxFCopCpSVEtcV9.MX8Hww9hvG5bwYCvqRXMuD4DCddbfPC",
+    "createdAt": "2026-09-25T11:59:24.567Z"
+  }
+]
