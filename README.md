@@ -1,72 +1,86 @@
-# OIBSIP WebDev Level 2 · Task 4 — Login Authentication System
+# Login & Registration System
 
-## Objective
-A full-stack authentication system with registration, login, a protected
-dashboard, and logout — built with Node.js, Express, and a JSON file store.
-
-## Tech Stack
-- Node.js + Express (server, routing)
-- express-session (server-side session management)
-- bcrypt (password hashing — 10 salt rounds, never stored in plain text)
-- Vanilla HTML/CSS/JS (frontend)
-- JSON file (`data/users.json`) as the data store
+A full-stack authentication project built to practice user registration, login, session management, password hashing, protected routes, and logout.
 
 ## Features
-- Registration: username/email + password, "Register" button
-- Password validation: minimum 8 characters, at least 1 number (checked
-  client-side and re-validated server-side)
-- Duplicate username/email check on registration
-- Login: username/email + password, "Login" button
-- Incorrect credentials return one generic error ("Invalid username or
-  password") — the response never reveals whether the username or the
-  password was wrong
-- Protected `/dashboard.html`: gated server-side. A direct hit with no
-  valid session is redirected (302) straight to `login.html` — the check
-  happens before any HTML is sent, not client-side
-- Logout button clears the session (`express-session` destroy + cookie
-  clear) and redirects to login
-- Passwords are hashed with bcrypt before being written to disk — plain
-  text passwords are never stored or logged
-- Basic form validation on both pages (empty submissions rejected)
 
-## Running it locally
+- User registration
+- Password validation
+- Duplicate username/email checks
+- Login with username or email
+- Generic invalid-credentials error
+- Server-side session management
+- Protected dashboard route
+- Logout and session destruction
+- Password hashing with bcrypt
+- Client-side and server-side form validation
+
+## Tech Stack
+
+- Node.js
+- Express.js
+- express-session
+- bcrypt
+- HTML5
+- CSS3
+- JavaScript
+- JSON file storage
+
+## Project Structure
+
+```text
+login-register/
+├── server.js
+├── data/
+│   └── users.json
+└── public/
+    ├── register.html
+    ├── login.html
+    ├── dashboard.html
+    ├── css/
+    │   └── style.css
+    └── js/
+        └── ...
+```
+
+## How It Works
+
+The application checks the user's session before serving the protected dashboard. If there is no valid session, the request is redirected to the login page.
+
+Passwords are hashed with bcrypt before being stored. The application does not store plain-text passwords.
+
+## Run Locally
+
 ```bash
 npm install
 npm start
 ```
-Then open http://localhost:3000 (redirects to the login page).
 
-## Project structure
-```
-server.js              Express app: all routes + session/auth logic
-data/users.json         User store (id, username, bcrypt hash, createdAt)
-public/register.html    Registration form
-public/login.html       Login form
-public/dashboard.html   Protected page (server-side gated)
-public/css/style.css    Shared styling
-public/js/*.js          Client-side fetch calls to the API
+Then open:
+
+```text
+http://localhost:3000
 ```
 
-## How the protection works
-`GET /dashboard.html` is intentionally excluded from Express's static file
-middleware and handled by its own route. That route checks
-`req.session.userId` before calling `res.sendFile`; if there's no valid
-session it responds with a redirect instead. This means the dashboard's
-markup is never even sent to an unauthenticated client — it isn't a
-client-side redirect that could be bypassed by disabling JavaScript.
+## What I Practiced
 
-## Notes for the demo video / screenshots
-1. Register a new account with a weak password → show the validation error.
-2. Register with a valid password → success message → redirect to login.
-3. Log in with the wrong password → generic error shown.
-4. Log in with correct credentials → land on the dashboard.
-5. Copy the dashboard URL, open it in a new incognito tab (no session) →
-   show it redirects to login.
-6. Click Logout → show it returns to login and the dashboard is
-   inaccessible again.
+- Building authentication flows with Express
+- Working with sessions and cookies
+- Password hashing with bcrypt
+- Protecting server-side routes
+- Validating user input
+- Connecting frontend forms to backend APIs
 
-## Security notes
-- Session secret in `server.js` is a hardcoded placeholder for this demo —
-  in production it should come from an environment variable.
-- `data/users.json` is a simple flat-file store, fine for a learning
-  project; a real app would use a proper database (MongoDB/PostgreSQL).
+## Security Notes
+
+This is a learning project.
+
+- The session secret should be stored in an environment variable in production.
+- JSON file storage is suitable for this demonstration; production applications should use a proper database such as MongoDB or PostgreSQL.
+- Additional production security measures such as HTTPS, rate limiting, CSRF protection, and secure cookie configuration should be added before deployment.
+
+## Author
+
+**SHAIK FAISAL**
+
+[GitHub](https://github.com/faisalshaik78)
