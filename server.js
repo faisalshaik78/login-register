@@ -174,6 +174,10 @@ app.get('/', (req, res) => {
   res.redirect('/login.html');
 });
 
-app.listen(PORT, () => {
-  console.log(`OIBSIP Login Auth System running at http://localhost:${PORT}`);
-});
+module.exports = app;
+
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`OIBSIP Login Auth System running at http://localhost:${PORT}`);
+  });
+}
