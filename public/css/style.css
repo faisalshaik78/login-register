@@ -51,11 +51,13 @@ input[type='password'] {
   border: 1px solid #d1d5db;
   border-radius: 8px;
   font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-input:focus {
+input:focus-visible {
   outline: none;
   border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
 }
 
 .hint {
@@ -75,10 +77,21 @@ button {
   font-weight: 600;
   cursor: pointer;
   margin-top: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 button:hover {
   background: #4338ca;
+}
+
+button:focus-visible,
+.switch-link a:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.35);
+  outline-offset: 3px;
+}
+
+button:active {
+  transform: translateY(1px);
 }
 
 button.secondary {
@@ -122,6 +135,10 @@ button.secondary:hover {
   font-weight: 600;
 }
 
+.switch-link a:hover {
+  text-decoration: underline;
+}
+
 .dashboard-card {
   max-width: 460px;
 }
@@ -139,4 +156,21 @@ button.secondary:hover {
   font-size: 13px;
   font-weight: 600;
   margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 28px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
